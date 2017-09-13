@@ -1,0 +1,241 @@
+-- phpMyAdmin SQL Dump
+-- version 4.6.5.2
+-- https://www.phpmyadmin.net/
+--
+-- Host: 127.0.0.1
+-- Generation Time: Sep 12, 2017 at 12:12 PM
+-- Server version: 10.1.21-MariaDB
+-- PHP Version: 5.6.30
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET time_zone = "+00:00";
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
+
+--
+-- Database: `stock_management`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `billing`
+--
+
+CREATE TABLE `billing` (
+  `username` varchar(32) NOT NULL,
+  `password` varchar(64) NOT NULL,
+  `email_id` varchar(32) NOT NULL,
+  `flag` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `billing`
+--
+
+INSERT INTO `billing` (`username`, `password`, `email_id`, `flag`) VALUES
+('manager', '3933275C2822C7B6C162B9C088E3C069C8CCDAC8', 'sriramramachidambaram@gmail.com', 0);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `loginattempts`
+--
+
+CREATE TABLE `loginattempts` (
+  `IP` varchar(100) NOT NULL,
+  `Attempts` int(50) NOT NULL,
+  `LastLogin` datetime(6) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `purchase_management`
+--
+
+CREATE TABLE `purchase_management` (
+  `purchase_id` varchar(13) NOT NULL,
+  `date` date NOT NULL,
+  `category` varchar(25) NOT NULL,
+  `product_name` varchar(30) NOT NULL,
+  `quantity` varchar(13) NOT NULL,
+  `amount_paid` float NOT NULL,
+  `amount_due` float NOT NULL,
+  `seller_name` varchar(25) NOT NULL,
+  `contact_no` int(12) NOT NULL,
+  `mode_of_payment` varchar(10) NOT NULL,
+  `discount` int(5) NOT NULL,
+  `enterprise_name` varchar(30) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `purchase_management`
+--
+
+INSERT INTO `purchase_management` (`purchase_id`, `date`, `category`, `product_name`, `quantity`, `amount_paid`, `amount_due`, `seller_name`, `contact_no`, `mode_of_payment`, `discount`, `enterprise_name`) VALUES
+('324', '2017-04-04', 'food', 'wheat', '100', 50000, 0, 'jack', 1234567890, 'cash', 5, 'abc'),
+('869', '2017-04-17', 'textile', 'tshirt', '150', 40000, 2500, 'raj', 698574123, 'cash', 10, 'xyz'),
+('dyugy', '0000-00-00', 'hfjy', 'hjujhm', 'hgf', 23, 3456, 'hgfy', 852, 'hjgh', 52, 'jhfh'),
+('rgshjhgk', '2017-04-04', 'guibu', 'ytyfytgyh', 'jhfyhg', 120, 120, 'ygh', 5952, 'htujyh', 10, 'fdyhgh');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `sales_management`
+--
+
+CREATE TABLE `sales_management` (
+  `BILL_NO` varchar(350) NOT NULL,
+  `DATE` date NOT NULL,
+  `CUSTOMER` varchar(20) NOT NULL,
+  `CONTACT` varchar(20) NOT NULL,
+  `DISCOUNT` int(11) NOT NULL,
+  `GRAND_TOTAL` float NOT NULL,
+  `PAYMENT_MODE` varchar(10) NOT NULL,
+  `ADDRESS` varchar(40) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 ROW_FORMAT=COMPACT;
+
+--
+-- Dumping data for table `sales_management`
+--
+
+INSERT INTO `sales_management` (`BILL_NO`, `DATE`, `CUSTOMER`, `CONTACT`, `DISCOUNT`, `GRAND_TOTAL`, `PAYMENT_MODE`, `ADDRESS`) VALUES
+('000', '2017-05-08', 'xxx', '1234565789', 0, 500, 'cash', 'yyy'),
+('02', '2017-04-10', 'ejhecew', '1023698556', 23, 78456, 'NetBanking', 'dbvdskjvbkds'),
+('1', '2017-05-20', 'abc', '123456789', 0, 500, 'cash', 'yyy'),
+('212365', '2017-04-30', 'aslkcaskl', '789456123', 0, 6788, 'card', 'jdajvbdjkvb'),
+('41', '2017-04-08', 'dbkjvds', '123458709', 10, 1230, 'NetBanking', 'vsdlvhdskvhlkds'),
+('46545', '2017-04-12', 'kjbdjkfs', '53465454466', 12, 5456, 'cash', 'knklsndlsknf'),
+('7953', '2017-04-17', 'avscas', '788965133', 12, 9563, 'card', 'jkasbcjaskca'),
+('87461', '2017-04-25', 'asbjka', '741852963', 11, 5454, 'cash', 'jbkjsbvjk'),
+('8899', '2017-04-18', 'jqkbjkbfjkwe', '46885436', 15, 7889, 'NetBanking', 'knfeklsnlksvlk'),
+('89652', '2017-04-17', 'jdsbjkdsv', '123958746', 3, 8507680000000, 'cash', 'vdljkbslkvbslkv');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `stock_management`
+--
+
+CREATE TABLE `stock_management` (
+  `Stock ID` varchar(20) NOT NULL,
+  `Category` varchar(20) NOT NULL,
+  `Category ID` varchar(20) NOT NULL,
+  `StockName` varchar(20) NOT NULL,
+  `Selling Price` int(11) NOT NULL,
+  `Purchase Price` int(11) NOT NULL,
+  `Quantity` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `stock_management`
+--
+
+INSERT INTO `stock_management` (`Stock ID`, `Category`, `Category ID`, `StockName`, `Selling Price`, `Purchase Price`, `Quantity`) VALUES
+('007', 'automobile', '000', 'car', 20000, 15000, 1),
+('1', '1', '000', '1', 1, 1, 15),
+('2', '2', '000', '2', 2, 2, 10),
+('22', 'Food', '000', 'Raspberry jam', 12, 14, 50),
+('3', '3', '000', '3', 3, 3, 20),
+('33', 'Food', '000', 'Chocolate jam', 500, 340, 22),
+('893', 'food', '000', 'chicken', 500, 100, 30),
+('ryt', 'dfbdfb', '000', '4', 0, 3, 22);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `supplier_management`
+--
+
+CREATE TABLE `supplier_management` (
+  `supplier_id` varchar(32) NOT NULL,
+  `supplier_name` varchar(32) NOT NULL,
+  `enterprise_name` varchar(50) NOT NULL,
+  `contact_no` int(10) NOT NULL,
+  `address` varchar(50) NOT NULL,
+  `state` varchar(32) NOT NULL,
+  `district` varchar(32) NOT NULL,
+  `city_town` varchar(32) NOT NULL,
+  `country` varchar(32) NOT NULL,
+  `materials_provided` varchar(100) NOT NULL,
+  `category` varchar(20) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `supplier_management`
+--
+
+INSERT INTO `supplier_management` (`supplier_id`, `supplier_name`, `enterprise_name`, `contact_no`, `address`, `state`, `district`, `city_town`, `country`, `materials_provided`, `category`) VALUES
+('S_383', 'fabulous', 'xyz.pvt.ltd', 1234567890, 'awddadwadawdadawa,12,streer', 'rajasthan', 'alwar', 'neem rana', 'india', 'shirts\r\npants\r\ntrousers\r\nvests', 'textile'),
+('S_789', 'great', 'asdlkvlkda.pvt.ltd', 2138527410, 'bvsdjkvbdsjkvui,12,3,street', 'andhra', 'karnool', 'karnool', 'india', 'sweets\r\ncashews\r\nbadham\r\nspices\r\npickles\r\n', 'food');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `users`
+--
+
+CREATE TABLE `users` (
+  `username` varchar(36) NOT NULL,
+  `password` varchar(64) NOT NULL,
+  `email_id` varchar(50) NOT NULL,
+  `flag` int(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `users`
+--
+
+INSERT INTO `users` (`username`, `password`, `email_id`, `flag`) VALUES
+('admin', 'b11c6cbd7abd1eeb7ed7f82171e0128df89a879b', 'rmr.chidambaram@st.niituniversity.in', 2);
+
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `billing`
+--
+ALTER TABLE `billing`
+  ADD PRIMARY KEY (`email_id`);
+
+--
+-- Indexes for table `purchase_management`
+--
+ALTER TABLE `purchase_management`
+  ADD PRIMARY KEY (`purchase_id`);
+
+--
+-- Indexes for table `sales_management`
+--
+ALTER TABLE `sales_management`
+  ADD PRIMARY KEY (`BILL_NO`),
+  ADD UNIQUE KEY `BILL_NO` (`BILL_NO`),
+  ADD UNIQUE KEY `BILL_NO_2` (`BILL_NO`);
+
+--
+-- Indexes for table `stock_management`
+--
+ALTER TABLE `stock_management`
+  ADD PRIMARY KEY (`Stock ID`);
+
+--
+-- Indexes for table `supplier_management`
+--
+ALTER TABLE `supplier_management`
+  ADD PRIMARY KEY (`supplier_id`);
+
+--
+-- Indexes for table `users`
+--
+ALTER TABLE `users`
+  ADD PRIMARY KEY (`email_id`);
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
