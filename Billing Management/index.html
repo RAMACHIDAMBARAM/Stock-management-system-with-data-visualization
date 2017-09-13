@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+
+<html>
+	<head>
+		<meta charset="utf-8"/>
+		<link rel="stylesheet" href="css/index.css">
+	</head>
+	<body>
+		<center>
+			<span> <img src="IMAGES/logo.png" alt="logoicon" class="logoicon"></span>
+			<label class="h"><b><i>BILLING SYSTEM</b></i></label>
+			<br>
+			<label class="head"><b><i>BY RM.RAMA CHIDAMBARAM,SHIVAM SHANDIL AND RONALD TONY</b></i></label>
+			<br>
+			<button class="button"onclick="document.getElementById('id01').style.display='block'" style="width:auto;"><i><b>WELCOME</b></i></button>
+			<footer style="color:#DAA520">&copy; Copyrights Reserved by RM.R and Team</footer>
+		</center>
+		<div id="id01" class="modal">
+			<form class="modal-content animate" action="login_page.php" method="post">
+				<div class="imgcontainer">
+					<span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
+					<img src="IMAGES/logo.png" alt="Avatar" class="avatar">
+				</div>  
+				<div class="container">
+					<label style="color:#DAA520"><b><i>Username</b></i></label>
+					<input  type="text" placeholder="Enter Username" name="username" required>
+					<label style="color:#DAA520"><b><i>Password</b><i></label>
+					<input  type="password" placeholder="Enter Password" name="password" required>
+					<center>  <input  class="button1" type="submit" name="submit"  value="Let Me In" > </center>
+					<br>
+					<br>
+					<div>
+						<label class="psw"style="color:#4682B4"><b>Forgot </b><a href="forgot.php" style="color:#DAA520"><b><i>password?</b></i></a></label>
+					</div>
+				</div>
+			</form>
+		</div>
+		<script>
+			// Get the modal
+			var modal = document.getElementById('id01');
+
+			// When the user clicks anywhere outside of the modal, close it
+			window.onclick = function(event) {
+				if (event.target == modal) {
+					modal.style.display = "none";
+				}
+			}
+		</script>
+	</body>
+</html>
